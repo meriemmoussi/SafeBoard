@@ -1,28 +1,38 @@
 
 <div class="container">
   <br><br><br><br><br>
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
         <form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
           <div class="form-group">
-            <label for="title">Title</label>
+            <label for="label">label</label>
             <input
               type="text"
               class="form-control"
-              id="title"
+              id="label"
               required
               ngModel
-              name="title"
+              name="label"
             />
           </div>
           <div class="form-group">
-            <label for="content">Content</label>
+            <label for="image">image</label>
             <textarea
               class="form-control"
-              id="content"
+              id="image"
               required
               ngModel
-              name="content"
+              name="image"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="date">date</label>
+            <textarea
+              class="form-control"
+              id="date"
+              required
+              ngModel
+              name="date"
             ></textarea>
           </div>
           <button
@@ -34,9 +44,9 @@
           </button>
         </form>
       </div>
-    </div> -->
+    </div>
     <hr />
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
         <button class="btn btn-primary" (click)="onFetchPosts()">
           Fetch Posts
@@ -50,7 +60,7 @@
           Clear Posts
         </button>
       </div>
-    </div> -->
+    </div>
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
         <p *ngIf="loadedPosts.length < 1 && !isFetching">No posts available!</p>

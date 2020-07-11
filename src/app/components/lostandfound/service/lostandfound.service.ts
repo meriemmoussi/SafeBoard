@@ -17,6 +17,25 @@ export class LostandfoundService {
   constructor(private http: HttpClient) { }
 
 
+  createAndStorePost(label: string, image: string, date: Date ) {
+    const lostandfoundData: Lostandfound = { label: label , image: image , date: date};
+    const headers = { 'content-type': 'json'};
+    this.http
+      .post<any>(
+        'http://127.0.0.1:8000/lostandfound/new',
+        lostandfoundData
+      )
+      .subscribe(
+        responseData => {
+          console.log(responseData);
+        },
+        error => {
+          this.error.next(error.message);
+        }
+      );
+  }
+
+
 
   fetchPosts() {
     let searchParams = new HttpParams();

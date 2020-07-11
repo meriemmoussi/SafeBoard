@@ -38,6 +38,11 @@ export class LostandfoundComponent implements OnInit , OnDestroy {
     );
   }
 
+  onCreatePost(postData: Lostandfound) {
+    // Send Http request
+    this.lostandfoundService.createAndStorePost(postData.label, postData.image, postData.date);
+  }
+
 
   onFetchPosts() {
     // Send Http request
