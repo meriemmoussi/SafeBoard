@@ -8,14 +8,16 @@ import { LandingComponent } from './examples/landing/landing.component';
 import { LoginComponent } from './examples/login/login.component';
 import { ProfileComponent } from './examples/profile/profile.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+import { LostandfoundComponent } from './components/lostandfound/lostandfound.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'refugees', pathMatch: 'full' },
     { path: 'refugees',                component: ComponentsComponent },
     { path: 'event',          component: NucleoiconsComponent },
     { path: 'donation',     component: LandingComponent },
-    { path: 'lostfound',       component: LoginComponent },
-    { path: 'association',     component: ProfileComponent }
+    { path: 'lostfound',       component: LostandfoundComponent },
+    { path: 'association',     component: ProfileComponent },
+    { path: 'aaaa',       component: LostandfoundComponent }
 ];
 
 @NgModule({
