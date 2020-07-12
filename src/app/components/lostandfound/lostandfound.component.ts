@@ -1,17 +1,19 @@
 import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LostandfoundService } from './service/lostandfound.service';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { Lostandfound } from './models/lostandfound.model';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-lostandfound',
   templateUrl: './lostandfound.component.html',
-  styleUrls: ['./lostandfound.component.css']
+  styleUrls: ['./lostandfound.component.scss']
 })
 export class LostandfoundComponent implements OnInit , OnDestroy {
   loadedPosts: Lostandfound[] = [];
   isFetching = false;
+  date : any ;
   error = null;
   private errorSub: Subscription;
 
@@ -70,6 +72,8 @@ export class LostandfoundComponent implements OnInit , OnDestroy {
   onHandleError() {
     this.error = null;
   }
+
+  
 
   ngOnDestroy() {
     let navbar = document.getElementsByTagName('app-navbar')[0].children[0];

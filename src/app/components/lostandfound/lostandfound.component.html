@@ -25,8 +25,8 @@
               name="image"
             ></textarea>
           </div>
-          <div class="form-group">
-            <label for="date">date</label>
+          <!-- <div class="form-group">
+            <label for="date">image</label>
             <textarea
               class="form-control"
               id="date"
@@ -34,7 +34,20 @@
               ngModel
               name="date"
             ></textarea>
-          </div>
+          </div> -->
+          
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Choose a date</mat-label>
+              <input class="form-control"
+              id="date"
+              required
+              ngModel
+              name="date" matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
           <button
             class="btn btn-primary"
             type="submit"
@@ -46,6 +59,8 @@
       </div>
     </div>
     <hr />
+    
+    
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
         <button class="btn btn-primary" (click)="onFetchPosts()">
