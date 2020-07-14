@@ -17,7 +17,7 @@ export class LostandfoundService {
   constructor(private http: HttpClient) { }
 
 
-  createAndStorePost(label: string, image: string, date: Date ) {
+  createAndStorePost(label: string, image: string, date: string ) {
     const lostandfoundData: Lostandfound = { label: label , image: image , date: date};
     const headers = { 'content-type': 'json'};
     this.http

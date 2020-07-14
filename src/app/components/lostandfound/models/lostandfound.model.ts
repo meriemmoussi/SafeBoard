@@ -1,6 +1,6 @@
 export class Lostandfound {
   label: string;
   image: string;
-  date : Date;
+  date : string;
   id?: string;
 }

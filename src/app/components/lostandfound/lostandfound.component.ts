@@ -3,12 +3,22 @@ import { HttpClient } from '@angular/common/http';
 import { LostandfoundService } from './service/lostandfound.service';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { Lostandfound } from './models/lostandfound.model';
+import { NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS } from "@angular/material/core";
+import { AppDateAdapter, APP_DATE_FORMATS} from 'app/shared/formats/date.adapter';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-lostandfound',
   templateUrl: './lostandfound.component.html',
-  styleUrls: ['./lostandfound.component.scss']
+  styleUrls: ['./lostandfound.component.scss'],
+  providers: [
+    {
+        provide: DateAdapter, useClass: AppDateAdapter
+    },
+    {
+        provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS
+    }
+    ]
 })
 export class LostandfoundComponent implements OnInit , OnDestroy {
   loadedPosts: Lostandfound[] = [];
@@ -17,7 +27,7 @@ export class LostandfoundComponent implements OnInit , OnDestroy {
   error = null;
   private errorSub: Subscription;
 
-  constructor(private http: HttpClient, private lostandfoundService: LostandfoundService, private element : ElementRef) { }
+  constructor(private http: HttpClient, private lostandfoundService: LostandfoundService, private element : ElementRef ) { }
 
   ngOnInit()  {
     let navbar = document.getElementsByTagName('app-navbar')[0].children[0];
@@ -42,7 +52,9 @@ export class LostandfoundComponent implements OnInit , OnDestroy {
 
   onCreatePost(postData: Lostandfound) {
     // Send Http request
-    this.lostandfoundService.createAndStorePost(postData.label, postData.image, postData.date);
+    let newDate = new Date(postData.date);
+    let strDate = newDate.getFullYear().toString() +"-" + (newDate.getMonth()+1).toString() +"-"+ newDate.getDate().toString() +"T00:00:00+02:00";    
+    this.lostandfoundService.createAndStorePost(postData.label, postData.image, strDate );
   }
 
 
