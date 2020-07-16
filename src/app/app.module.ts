@@ -7,12 +7,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
-
+import { MatSelectModule } from '@angular/material/select'
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatButtonModule} from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { from } from 'rxjs';
@@ -33,9 +34,11 @@ const modules = [
         MatSliderModule,
         MatInputModule,
         MatFormFieldModule,
+        MatSelectModule, 
+        MatButtonModule,
+        // MatLabel,
         BrowserAnimationsModule,
-        HttpClientModule,
-        
+        HttpClientModule,               
         FormsModule,
         RouterModule,
         AppRoutingModule,

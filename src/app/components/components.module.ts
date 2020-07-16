@@ -16,8 +16,10 @@ import { LostandfoundComponent } from './lostandfound/lostandfound.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule} from '@angular/material/button';
 import { from } from 'rxjs';
 
 @NgModule({
@@ -28,7 +30,15 @@ import { from } from 'rxjs';
         NouisliderModule,
         RouterModule,
         JwBootstrapSwitchNg2Module,
-        MatSliderModule,MatDatepickerModule,MatNativeDateModule,MatFormFieldModule,MatInputModule
+        MatSliderModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule ,        
+         MatSelectModule ,
+         MatButtonModule
+        // MatLabel
       ],
     declarations: [
         ComponentsComponent,

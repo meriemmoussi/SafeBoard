@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { map, catchError, tap } from 'rxjs/operators';
 import { Subject, throwError } from 'rxjs';
 import { Lostandfound } from '../models/lostandfound.model';
+import 'rxjs/add/operator/map';
+
 import {
   HttpClient,
   HttpHeaders,
   HttpParams,
   HttpEventType
 } from '@angular/common/http';
+import { Post } from '../models/post.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,24 +19,35 @@ export class LostandfoundService {
 
   constructor(private http: HttpClient) { }
 
+  getImages() {
 
-  createAndStorePost(label: string, image: string, date: string ) {
-    const lostandfoundData: Lostandfound = { label: label , image: image , date: date};
+
+    return this.http.get('http://127.0.0.1:8000/file/');
+
+  }
+
+
+  createAndStorePost(form :FormData ) {
+   
     const headers = { 'content-type': 'json'};
     this.http
       .post<any>(
-        'http://127.0.0.1:8000/lostandfound/new',
-        lostandfoundData
+        'http://127.0.0.1:8000/file/new', form 
+        
       )
       .subscribe(
         responseData => {
           console.log(responseData);
+          
         },
         error => {
           this.error.next(error.message);
         }
       );
   }
+
+  
+
 
 
 
@@ -42,7 +56,7 @@ export class LostandfoundService {
     // searchParams = searchParams.append('print', 'pretty');
     // searchParams = searchParams.append('custom', 'key');
     return this.http
-      .get('http://127.0.0.1:8000/lostandfound/'      
+      .get('http://127.0.0.1:8000/file/'      
       )
       .pipe(
         map(responseData => {
