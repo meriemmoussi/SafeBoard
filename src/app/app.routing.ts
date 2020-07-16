@@ -9,6 +9,7 @@ import { LoginComponent } from './examples/login/login.component';
 import { ProfileComponent } from './examples/profile/profile.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { LostandfoundComponent } from './components/lostandfound/lostandfound.component';
+import { NewlostandfoundComponent } from './components/lostandfound/newlostandfound/newlostandfound.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'refugees', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes =[
     { path: 'event',          component: NucleoiconsComponent },
     { path: 'donation',     component: LandingComponent },
     { path: 'lostfound',       component: LostandfoundComponent },
+    { path: 'newlostfound',       component: NewlostandfoundComponent },
     { path: 'association',     component: ProfileComponent },
     { path: 'aaaa',       component: LostandfoundComponent }
 ];

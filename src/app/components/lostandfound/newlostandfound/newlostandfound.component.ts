@@ -1,19 +1,18 @@
 import { Component, OnInit, OnDestroy, ElementRef, Output } from '@angular/core';
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
-import { LostandfoundService } from './service/lostandfound.service';
+import { LostandfoundService } from '../service/lostandfound.service';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { Lostandfound } from './models/lostandfound.model';
+import { Lostandfound } from '../models/lostandfound.model';
 import { NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS } from "@angular/material/core";
 import { AppDateAdapter, APP_DATE_FORMATS} from 'app/shared/formats/date.adapter';
 import { Subscription } from 'rxjs';
-import { Post } from './models/post.model';
+import { Post } from '../models/post.model';
 import { EventEmitter } from 'protractor';
 import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-lostandfound',
-  templateUrl: './lostandfound.component.html',
-  styleUrls: ['./lostandfound.component.scss'],
+  selector: 'app-newlostandfound',
+  templateUrl: './newlostandfound.component.html',
+  styleUrls: ['./newlostandfound.component.css'],
   providers: [
     {
         provide: DateAdapter, useClass: AppDateAdapter
@@ -23,7 +22,7 @@ import { Router } from '@angular/router';
     }
     ]
 })
-export class LostandfoundComponent implements OnInit , OnDestroy {
+export class NewlostandfoundComponent implements OnInit , OnDestroy{
   loadedPosts: Lostandfound[] = [];
   visibleImages: any[] = [];
   selectedFile = null;
@@ -34,28 +33,15 @@ export class LostandfoundComponent implements OnInit , OnDestroy {
 
   constructor(private http: HttpClient, private lostandfoundService: LostandfoundService, private element : ElementRef ,private route: Router) { }
 
-  ngOnInit()  {
+  ngOnInit() {
     let navbar = document.getElementsByTagName('app-navbar')[0].children[0];
 
       navbar.classList.remove('navbar-transparent');
     this.errorSub = this.lostandfoundService.error.subscribe(errorMessage => {
       this.error = errorMessage;
     });
-
-    this.isFetching = true;
-    this.lostandfoundService.fetchPosts().subscribe(
-      posts => {
-        this.isFetching = false;
-        this.loadedPosts = posts;
-      },
-      error => {
-        this.isFetching = false;
-        this.error = error.message;
-      }
-    );
   }
 
-  
 
   processFile(event){
     this.selectedFile = event.target.files[0];
@@ -75,32 +61,6 @@ export class LostandfoundComponent implements OnInit , OnDestroy {
 
     
   }
-
- 
-
-
-  onFetchPosts() {
-    // Send Http request
-    this.isFetching = true;
-    this.lostandfoundService.fetchPosts().subscribe(
-      posts => {
-        this.isFetching = false;
-        this.loadedPosts = posts;
-      },
-      error => {
-        this.isFetching = false;
-        this.error = error.message;
-        console.log(error);
-      }
-    );
-  }
-
-  // onClearPosts() {
-  //   // Send Http request
-  //   this.lostandfoundService.deletePosts().subscribe(() => {
-  //     this.loadedPosts = [];
-  //   });
-  // }
 
   onHandleError() {
     this.error = null;

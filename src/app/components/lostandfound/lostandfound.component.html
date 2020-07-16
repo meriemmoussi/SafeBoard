@@ -1,141 +1,6 @@
 <br><br><br><br>
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <div class="example-container">
-          <form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)" enctype="multipart/form-data">
-          <mat-form-field appearance="fill">
-            <mat-label>label</mat-label>
-            <input type="text"
-            id="label"
-            required
-            ngModel
-            name="label" matInput>
-          </mat-form-field>
-          <!-- <br>
-          <mat-form-field appearance="fill">
-            <mat-label>image</mat-label>
-            <input type="text"
-            id="image"
-            required
-            ngModel
-            name="image" matInput>
-          </mat-form-field> -->
-          <br>
-          <mat-form-field>
-            <input 
-            id="createdAt"
-            required
-            ngModel
-            name="createdAt" matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-          
-          <br>
-          <div>
-            <label class="image-upload-container btn btn-bwm">
-              <span>Select Image</span>
-              <input #imageInput
-                      id="file"
-                      required
-                      ngModel
-                      name="file"
-                     type="file"
-                     accept="image/*"
-                     (change)="processFile($event)">
-            </label>
-          </div>
-          <br>
-          <!-- <mat-form-field appearance="fill">
-            <mat-label>Select</mat-label>
-            <mat-select>
-              <mat-option value="option">Option</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <br>
-          <mat-form-field appearance="fill">
-            <mat-label>Textarea</mat-label>
-            <textarea matInput></textarea>
-          </mat-form-field> -->
-          <div>
-            <button 
-            [disabled]="!postForm.valid"
-            mat-raised-button color="primary">Send Post</button>
-          <!-- <button
-            class="btn btn-primary"
-            type="submit"
-            [disabled]="!postForm.valid"
-          >
-            Send Post
-          </button> -->
-        </div>
-        </form>
-        </div>
-    </div>
-  </div>
-</div>
-<br><br>
-<hr>
-<div class="container">
-  
-     <!-- <div class="row">
-      <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
-          <div class="form-group">
-            <label for="label">label</label>
-            <input
-              type="text"
-              class="form-control"
-              id="label"
-              required
-              ngModel
-              name="label"
-            />
-          </div>
-          <div class="form-group">
-            <label for="image">image</label>
-            <textarea
-              class="form-control"
-              id="image"
-              required
-              ngModel
-              name="image"
-            ></textarea>
-          </div>
-          <div>
-            <label class="image-upload-container btn btn-bwm">
-              <span>Select Image</span>
-              <input #imageInput
-                     type="file"
-                     accept="image/*"
-                     (change)="processFile(imageInput)">
-            </label>
-          </div>
-          <div>
-            <mat-form-field>
-              <input class="form-control"
-              id="date"
-              required
-              ngModel
-              name="date" matInput [matDatepicker]="picker" placeholder="Choose a date">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-          </div>
-          <button
-            class="btn btn-primary"
-            type="submit"
-            [disabled]="!postForm.valid"
-          >
-            Send Post
-          </button>
-        </form>
-      </div> 
-    </div>
-    <hr /> -->
 
-    
     
     
     <div class="row">
@@ -151,6 +16,8 @@
         >
           Clear Posts
         </button>
+        |
+        <a href="/newlostfound"><button mat-raised-button color="primary">Add Post</button></a>
       </div>
     </div>
     <div class="row">

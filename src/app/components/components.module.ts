@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule} from '@angular/material/button';
 import { from } from 'rxjs';
+import { NewlostandfoundComponent } from './lostandfound/newlostandfound/newlostandfound.component';
 
 @NgModule({
     imports: [
@@ -48,7 +49,8 @@ import { from } from 'rxjs';
         NucleoiconsComponent,
         NotificationComponent,
         LostandfoundComponent,
-        NgbdModalBasic
+        NgbdModalBasic,
+        NewlostandfoundComponent
     ],
     exports:[ ComponentsComponent ]
 })
